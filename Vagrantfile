@@ -65,11 +65,9 @@ Vagrant.configure(2) do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-    wget http://www.erlang.org/download/otp_src_17.5.tar.gz
-    tar xvf otp_src_17.5.tar.gz
-    cd otp_src_17.5/
-    ./configure
-    make
-    make install
+    wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
+    dpkg -i erlang-solutions_1.0_all.deb
+    apt-get update
+    apt-get install -y erlang
   SHELL
 end
